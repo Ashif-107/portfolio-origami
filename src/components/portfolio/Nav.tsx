@@ -20,12 +20,12 @@ export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggl
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">
-          <svg width="28" height="28" viewBox="0 0 32 32" className="transition-transform group-hover:rotate-12">
+          <svg width="28" height="28" viewBox="0 0 32 32" className="transition-transform group-hover:rotate-26">
             <polygon points="2,16 16,2 30,16 16,30" fill="var(--coral)" />
             <polygon points="16,2 30,16 16,16" fill="var(--aqua)" />
             <polygon points="2,16 16,30 16,16" fill="var(--foreground)" opacity="0.15" />
           </svg>
-          <span className="font-display font-bold text-lg tracking-tight">ashif<span className="text-coral">.</span></span>
+          <span className="font-display font-bold text-lg tracking-tight">Ashif<span className="text-coral">.</span></span>
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -42,7 +42,7 @@ export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggl
         <button
           onClick={onToggleTheme}
           aria-label="Toggle theme"
-          className="relative w-10 h-10 grid place-items-center rounded-full border border-border hover:border-coral hover:text-coral transition-all"
+          className="relative w-10 h-10 grid place-items-center rounded-full border border-border hover:border-coral hover:text-coral transition-all hover:rotate-45"
         >
           {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
         </button>

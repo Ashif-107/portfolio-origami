@@ -14,11 +14,11 @@ const FOLD = 72; // px, size of folded corner on hover
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-28 px-6">
+    <section id="skills" className="relative py-5 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionLabel n="03" label="Skills" />
         <h2 className="mt-8 font-display text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
-          Tools I <span className="text-coral">fold</span> with — sharp creases, soft edges.
+          Tools I <span className="text-coral">fold</span> with - sharp creases, soft edges.
         </h2>
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

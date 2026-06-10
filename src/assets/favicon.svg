@@ -1,0 +1,5 @@
+<svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="2,16 16,2 30,16 16,30" fill="var(--coral)" />
+  <polygon points="16,2 30,16 16,16" fill="var(--aqua)" />
+  <polygon points="2,16 16,30 16,16" fill="var(--foreground)" opacity="0.15" />
+</svg>

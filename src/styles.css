@@ -91,10 +91,14 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
   /* Origami highlight palette */
-  --coral: oklch(0.72 0.2 24);          /* #FF7676 */
-  --aqua: oklch(0.88 0.16 190);         /* #40FFE6 */
-  --yellow-paper: oklch(0.96 0.2 105);  /* #FDFF32 */
-  --lime: oklch(0.9 0.24 130);          /* #8CFF32 */
+  --coral: oklch(0.72 0.2 24);
+  /* #FF7676 */
+  --aqua: oklch(0.88 0.16 190);
+  /* #40FFE6 */
+  --yellow-paper: oklch(0.96 0.2 105);
+  /* #FDFF32 */
+  --lime: oklch(0.9 0.24 130);
+  /* #8CFF32 */
   --paper: oklch(0.985 0.005 90);
   --paper-shadow: oklch(0.18 0.02 260 / 0.08);
 }
@@ -156,21 +160,47 @@
     scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  .text-coral { color: var(--coral); }
-  .text-aqua { color: var(--aqua); }
-  .text-lime-paper { color: var(--lime); }
-  .text-yellow-paper { color: var(--yellow-paper); }
-  .bg-coral { background-color: var(--coral); }
-  .bg-aqua { background-color: var(--aqua); }
-  .bg-lime-paper { background-color: var(--lime); }
-  .bg-yellow-paper { background-color: var(--yellow-paper); }
+  .text-coral {
+    color: var(--coral);
+  }
+
+  .text-aqua {
+    color: var(--aqua);
+  }
+
+  .text-lime-paper {
+    color: var(--lime);
+  }
+
+  .text-yellow-paper {
+    color: var(--yellow-paper);
+  }
+
+  .bg-coral {
+    background-color: var(--coral);
+  }
+
+  .bg-aqua {
+    background-color: var(--aqua);
+  }
+
+  .bg-lime-paper {
+    background-color: var(--lime);
+  }
+
+  .bg-yellow-paper {
+    background-color: var(--yellow-paper);
+  }
 
   .paper-card {
     position: relative;
@@ -178,38 +208,63 @@
     border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
     border-radius: 0;
     clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
-    box-shadow:
-      0 1px 0 color-mix(in oklab, white 60%, transparent) inset,
-      0 10px 30px -10px var(--paper-shadow),
-      0 30px 60px -30px var(--paper-shadow);
-    transition: transform 400ms cubic-bezier(.2,.8,.2,1), box-shadow 400ms;
+   
   }
+
   .paper-card::before {
     content: "";
     position: absolute;
-    top: 0; right: 0;
-    width: 36px; height: 36px;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
     background: linear-gradient(135deg, transparent 50%, color-mix(in oklab, var(--foreground) 6%, transparent) 50%);
     pointer-events: none;
   }
+
   .paper-card:hover {
-    transform: translateY(-4px) rotate(-0.3deg);
+    transform: rotate(-0.3deg);
     box-shadow:
       0 1px 0 color-mix(in oklab, white 60%, transparent) inset,
       0 20px 40px -15px var(--paper-shadow),
       0 40px 80px -30px var(--paper-shadow);
   }
 
-  .fold-line {
-    background-image: linear-gradient(90deg,
-      transparent 0, transparent calc(50% - 0.5px),
-      color-mix(in oklab, var(--foreground) 12%, transparent) calc(50% - 0.5px),
-      color-mix(in oklab, var(--foreground) 12%, transparent) calc(50% + 0.5px),
-      transparent calc(50% + 0.5px));
+  .paper-card::after {
+    content: "";
+    position: absolute;
+    inset: -30px;
+
+    background: radial-gradient(circle,
+        var(--glow-color) 0%,
+        transparent 70%);
+
+    opacity: 0.25;
+    filter: blur(35px);
+
+    z-index: -1;
   }
 
-  .glow-coral { box-shadow: 0 0 40px -8px var(--coral); }
-  .glow-aqua { box-shadow: 0 0 40px -8px var(--aqua); }
+  .paper-card:hover::after {
+    opacity: 0.35;
+    filter: blur(60px);
+  }
+
+  .fold-line {
+    background-image: linear-gradient(90deg,
+        transparent 0, transparent calc(50% - 0.5px),
+        color-mix(in oklab, var(--foreground) 12%, transparent) calc(50% - 0.5px),
+        color-mix(in oklab, var(--foreground) 12%, transparent) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px));
+  }
+
+  .glow-coral {
+    box-shadow: 0 0 40px -8px var(--coral);
+  }
+
+  .glow-aqua {
+    box-shadow: 0 0 40px -8px var(--aqua);
+  }
 
   .highlight-underline {
     background-image: linear-gradient(transparent 65%, color-mix(in oklab, var(--coral) 55%, transparent) 65%);
@@ -220,9 +275,19 @@
 
   .grain::after {
     content: "";
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     pointer-events: none;
     background-image: radial-gradient(circle at 50% 50%, transparent 0, color-mix(in oklab, var(--foreground) 3%, transparent) 100%);
     mix-blend-mode: multiply;
   }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

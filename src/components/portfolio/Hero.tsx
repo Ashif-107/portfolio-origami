@@ -4,7 +4,7 @@ import crane from "@/assets/origami-crane.png";
 
 export function Hero() {
   return (
-    <section id="top" className="relative pt-32 pb-24 md:pt-44 md:pb-32 px-6">
+    <section id="top" className="relative pt-32 pb-24 md:pt-24 md:pb-32 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,12 +19,12 @@ export function Hero() {
             <br />
             <span className="text-muted-foreground">I craft software like</span>
             <br />
-            <span className="italic font-serif">origami</span>
+            <span className="italic font-serif">Origami</span>
             <span className="text-coral">.</span>
           </h1>
-          <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Full‑stack developer, systems engineer & game maker building scalable web apps,
-            cloud‑native systems, developer tools and immersive gaming experiences.
+          <p className="mt-8 text-xl text-muted-foreground max-w-xl leading-relaxed">
+            Full Stack Developer • Game Developer • Systems Enthusiast
+            Building full-stack applications, cloud-powered systems, and immersive gaming experiences.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a
@@ -46,8 +46,8 @@ export function Hero() {
           </div>
 
           <div className="mt-14 flex items-center gap-8 text-sm">
-            <Stat n="40+" l="Projects shipped" />
-            <Stat n="6yrs" l="Building software" />
+            <Stat n="40+" l="Projects" />
+            <Stat n="3yrs" l="Building software" />
             <Stat n="∞" l="Folds made" />
           </div>
         </motion.div>
@@ -59,12 +59,18 @@ export function Hero() {
           className="relative aspect-square"
         >
           {/* layered paper backdrop */}
-          <div className="absolute inset-8 bg-aqua/30 -rotate-6"
-               style={{ clipPath: "polygon(0 8%, 92% 0, 100% 92%, 8% 100%)" }} />
-          <div className="absolute inset-12 bg-yellow-paper/40 rotate-3"
-               style={{ clipPath: "polygon(6% 0, 100% 6%, 94% 100%, 0 94%)" }} />
-          <div className="absolute inset-16 bg-coral/30 -rotate-2"
-               style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 96%)" }} />
+          <motion.div className="absolute inset-8 bg-aqua/30 -rotate-6"
+            style={{ clipPath: "polygon(0 8%, 92% 0, 100% 92%, 8% 100%)" }}
+            animate={{rotate: [-6, -3, -6], y: [0, -10, 0], }}
+            transition={{duration: 10, repeat: Infinity, ease: "easeInOut",}} />
+          <motion.div className="absolute inset-12 bg-yellow-paper/40 rotate-3"
+            style={{ clipPath: "polygon(6% 0, 100% 6%, 94% 100%, 0 94%)" }} 
+            animate={{rotate: [3, 6, 3], y: [0, 8, 0], }}
+            transition={{duration: 10, repeat: Infinity, ease: "easeInOut",}} />
+          <motion.div className="absolute inset-16 bg-coral/30 -rotate-2"
+            style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 96%)" }} 
+            animate={{rotate: [-2, 2, -2], y: [0, -6, 0], }}
+            transition={{duration: 10, repeat: Infinity, ease: "easeInOut",}}/>
 
           <motion.img
             src={crane}
@@ -72,15 +78,15 @@ export function Hero() {
             width={1280}
             height={1280}
             className="relative w-full h-full object-contain drop-shadow-2xl"
-            animate={{ y: [0, -16, 0], rotate: [0, 2, -1, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, -26, 0], rotate: [0, 2, -1, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
 
           {/* corner tags */}
-          <div className="absolute top-4 right-4 paper-card px-3 py-2 text-xs font-mono">
+          <div className="absolute top right-4 paper-card px-3 py-2 text-xs font-mono">
             <span className="text-coral">▲</span> crane.fold
           </div>
-          <div className="absolute bottom-6 left-2 paper-card px-3 py-2 text-xs font-mono">
+          <div className="absolute bottom left-2 paper-card px-3 py-2 text-xs font-mono">
             <span className="text-aqua">●</span> 1024 folds
           </div>
         </motion.div>
