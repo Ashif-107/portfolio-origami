@@ -6,7 +6,7 @@ import { SectionLabel } from "./About";
 // Paper-plane silhouette clip-path. Designed for a tall rectangle (form area).
 // Coordinates kept conservative so inputs/text stay within the visible polygon.
 const PLANE_CLIP =
-  "polygon(0% 8%, 92% 0%, 100% 6%, 70% 38%, 100% 70%, 92% 100%, 30% 78%, 0% 96%, 12% 50%)";
+  "polygon(100% 0, 75% 80%, 48% 64%, 34% 84%, 29% 58%, 0 45%)";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -47,15 +47,16 @@ export function Contact() {
             className="absolute inset-0 translate-y-3 translate-x-2 bg-foreground/10 blur-xl"
             style={{ clipPath: PLANE_CLIP }}
           />
-          {/* Center fold line of the plane */}
           <div
             aria-hidden
-            className="absolute left-0 right-0 top-1/2 h-px bg-foreground/15 pointer-events-none z-10"
+            className="absolute inset-0 bg-lime/10 blur-xl"
+            style={{ clipPath: PLANE_CLIP }}
           />
+          
           <motion.form
             onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="relative bg-card border border-foreground/10 px-14 py-16 min-h-[520px]"
-            style={{ clipPath: PLANE_CLIP }}
+            className="relative bg-transparent border border-foreground/10 px-14 py-16 min-h-[520px]"
+
             initial={{ opacity: 0, y: 30, rotate: -2 }}
             whileInView={{ opacity: 1, y: 0, rotate: 0 }}
             viewport={{ once: true }}
@@ -94,6 +95,7 @@ export function Contact() {
               .field:focus { border-color: var(--coral); }
             `}</style>
           </motion.form>
+          
 
           <AnimatePresence>
             {sent && (

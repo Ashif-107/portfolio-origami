@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, File} from "lucide-react";
 import crane from "@/assets/origami-crane.png";
 import { useState } from "react";
 
@@ -64,7 +64,7 @@ export function Hero() {
               onMouseEnter={() => setHoverLabel("Resume")}
               onMouseMove={(event) => setCursorPos({ x: event.clientX, y: event.clientY })}
             >
-              <Mail size={18} />
+              <File size={18} />
               View Resume
             </a>
           </div>
