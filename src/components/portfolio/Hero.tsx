@@ -22,8 +22,8 @@ export function Hero() {
             <span className="italic font-serif">Origami</span>
             <span className="text-coral">.</span>
           </h1>
-          <p className="mt-8 text-xl text-muted-foreground max-w-xl leading-relaxed">
-            Full Stack Developer • Game Developer • Systems Enthusiast
+          <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-relaxed">
+            Full Stack Developer • Game Developer • Systems Enthusiast •
             Building full-stack applications, cloud-powered systems, and immersive gaming experiences.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">

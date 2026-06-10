@@ -10,6 +10,7 @@ const links = [
 ];
 
 export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme: () => void }) {
+  
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
