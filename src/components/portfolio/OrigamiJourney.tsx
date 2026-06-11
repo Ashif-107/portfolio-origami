@@ -229,8 +229,8 @@ function Monument({
                 state === "completed"
                   ? "#ffd9a8"
                   : state === "active"
-                  ? "#fff4e0"
-                  : "#6b6053"
+                    ? "#fff4e0"
+                    : "#6b6053"
               }
               flatShading
               side={THREE.DoubleSide}
@@ -297,8 +297,8 @@ function Scene({ progress }: { progress: number }) {
           progress > t + 0.05
             ? "completed"
             : progress > t - 0.05
-            ? "active"
-            : "future";
+              ? "active"
+              : "future";
         return (
           <Monument
             key={i}
@@ -376,6 +376,7 @@ export default function OrigamiJourney() {
         <Canvas
           camera={{ position: [6, 6, 10], fov: 50 }}
           gl={{ antialias: true, alpha: true }}
+          className="w-full h-full"
         >
           <Scene progress={progress} />
         </Canvas>
@@ -384,18 +385,18 @@ export default function OrigamiJourney() {
         <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-8 md:p-12">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d4a574]">
+              <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--color-secondary-foreground)]">
                 A Career in Folded Paper
               </p>
-              <h1 className="mt-2 max-w-lg text-3xl font-light leading-tight text-[#fff4e0] md:text-5xl">
-                Scroll to follow the dragon
+              <h1 className="mt-2 max-w-lg text-3xl font-light leading-tight text-[color:var(--color-foreground)] md:text-5xl">
+                An Engineer's Journey Through 
               </h1>
             </div>
-            <div className="text-right text-[#d4a574]">
+            <div className="text-right text-[color:var(--color-secondary-foreground)]">
               <p className="text-xs uppercase tracking-[0.3em]">Chapter</p>
-              <p className="font-serif text-3xl text-[#fff4e0]">
+              <p className="font-serif text-3xl text-[color:var(--color-foreground)]">
                 {String(activeIndex + 1).padStart(2, "0")}
-                <span className="text-[#d4a574]">
+                <span className="text-[color:var(--color-secondary-foreground)]">
                   /{String(MILESTONES.length).padStart(2, "0")}
                 </span>
               </p>
@@ -403,13 +404,13 @@ export default function OrigamiJourney() {
           </div>
 
           <div className="max-w-md">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d4a574]">
+            <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--color-secondary-foreground)]">
               {active.year} · {active.role}
             </p>
-            <h2 className="mt-2 text-3xl font-light text-[#fff4e0] md:text-4xl">
+            <h2 className="mt-2 text-3xl font-light text-[color:var(--color-foreground)] md:text-4xl">
               {active.title}
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[#cdbfa6] md:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted-foreground)] md:text-base">
               {active.desc}
             </p>
 
@@ -422,7 +423,7 @@ export default function OrigamiJourney() {
           </div>
         </div>
 
-        </div>
+      </div>
     </section>
   );
 }
