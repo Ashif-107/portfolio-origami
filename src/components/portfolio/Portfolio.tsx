@@ -8,6 +8,7 @@ import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { FloatingPaper } from "./FloatingPaper";
+import { CustomCursor } from "../actions/CustomCursor";
 
 export function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -29,6 +30,7 @@ export function Portfolio() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <CustomCursor/>
       <FloatingPaper />
       <Nav theme={theme} onToggleTheme={toggleTheme} />
       <main>

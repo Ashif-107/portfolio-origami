@@ -11,8 +11,6 @@ const links = [
 ];
 
 export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme: () => void }) {
-  const [hoverLabel, setHoverLabel] = useState<string | null>(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
   return (
     <>
@@ -34,20 +32,12 @@ export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggl
           </a>
           <nav
             className="hidden md:flex items-center gap-8 relative"
-            onMouseLeave={() => setHoverLabel(null)}
-            onMouseMove={(event) => {
-              if (hoverLabel) {
-                setCursorPos({ x: event.clientX, y: event.clientY });
-              }
-            }}
           >
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-                onMouseEnter={() => setHoverLabel(l.label)}
-                onMouseMove={(event) => setCursorPos({ x: event.clientX, y: event.clientY })}
               >
                 {l.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-coral transition-all duration-300 group-hover:w-full" />
@@ -64,20 +54,7 @@ export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggl
         </div>
       </motion.header>
 
-      <motion.div
-        initial={false}
-        animate={{
-          opacity: hoverLabel ? 1 : 0,
-          scale: hoverLabel ? 1 : 0.8,
-          left: hoverLabel ? cursorPos.x - 10 : cursorPos.x,
-          top: hoverLabel ? cursorPos.y - 10 : cursorPos.y,
-        }}
-        transition={{ type: "spring", stiffness: 450, damping: 28 }}
-        className="font-display pointer-events-none fixed z-50 flex w-24 h-24 items-center justify-center rounded-full border border-black bg-aqua/90 text-center text-xs font-semibold text-foreground shadow-lg shadow-black/10 backdrop-blur-2xl"
-        style={{ transform: "translate(-50%, -50%)" }}
-      >
-        {hoverLabel}
-      </motion.div>
+     
     </>
   );
 }

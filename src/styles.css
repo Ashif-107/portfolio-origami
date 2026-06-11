@@ -101,6 +101,10 @@
   /* #8CFF32 */
   --paper: oklch(0.985 0.005 90);
   --paper-shadow: oklch(0.18 0.02 260 / 0.08);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .dark {
@@ -146,13 +150,34 @@
     border-color: var(--color-border);
   }
 
+  html {
+    cursor: url('/src/assets/cursor.png') 2 2, auto;
+  }
+
+  button,
+  a,
+  .hoverable {
+    cursor: url('/src/assets/pointer.png') 4 4, pointer;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 0);
-    background-size: 28px 28px;
+      radial-gradient(ellipse 60% 50% at 12% 8%, color-mix(in oklab, var(--coral) 22%, transparent) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 45% at 88% 18%, color-mix(in oklab, var(--aqua) 22%, transparent) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 78% 92%, color-mix(in oklab, var(--lime) 20%, transparent) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 8% 78%, color-mix(in oklab, var(--yellow-paper) 22%, transparent) 0%, transparent 60%),
+      repeating-linear-gradient(45deg,
+        color-mix(in oklab, var(--foreground) 6%, transparent) 0 1px,
+        transparent 1px 22px),
+      repeating-linear-gradient(-45deg,
+        color-mix(in oklab, var(--foreground) 6%, transparent) 0 1px,
+        transparent 1px 22px),
+      radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 44px 44px, 44px 44px, 28px 28px;
+    background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed;
     transition: background-color 400ms ease, color 400ms ease;
   }
 
@@ -208,7 +233,7 @@
     border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
     border-radius: 0;
     clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
-   
+
   }
 
   .paper-card::before {
@@ -290,4 +315,38 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+
+.cursor {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  border: 2px solid oklch(0.88 0.16 190);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.15s var(--ease-out-expo),
+    width 0.3s var(--ease-out-expo),
+    height 0.3s var(--ease-out-expo),
+    border-color 0.3s;
+}
+
+.cursor.hover {
+  width: 50px;
+  height: 50px;
+  border: 2.5px solid;
+  border-color: oklch(0.72 0.2 24);
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: oklch(0.88 0.16 190);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
 }

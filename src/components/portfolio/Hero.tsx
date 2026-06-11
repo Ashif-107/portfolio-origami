@@ -4,10 +4,8 @@ import crane from "@/assets/origami-crane.png";
 import { useState } from "react";
 
 export function Hero() {
-  const [hoverLabel, setHoverLabel] = useState<string | null>(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-
-  return (
+ 
+   return (
     <section id="top" className="relative pt-32 pb-24 md:pt-24 md:pb-32 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <motion.div
@@ -30,19 +28,11 @@ export function Hero() {
             Full Stack Developer • Game Developer • Systems Enthusiast •
             Building full-stack applications, cloud-powered systems, and immersive gaming experiences.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4"
-            onMouseLeave={() => setHoverLabel(null)}
-            onMouseMove={(event) => {
-              if (hoverLabel) {
-                setCursorPos({ x: event.clientX, y: event.clientY });
-              }
-            }}>
+          <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#projects"
               className="group inline-flex items-center gap-2 px-6 py-3.5 bg-foreground text-background font-medium hover:bg-coral transition-all duration-300"
               style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))" }}
-              onMouseEnter={() => setHoverLabel("Projects")}
-              onMouseMove={(event) => setCursorPos({ x: event.clientX, y: event.clientY })}
             >
               View Projects
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -51,8 +41,6 @@ export function Hero() {
               href="#contact"
               className="group inline-flex items-center gap-2 px-6 py-3.5 border border-foreground/20 hover:border-coral hover:text-coral transition-all duration-300"
               style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))" }}
-              onMouseEnter={() => setHoverLabel("Contact")}
-              onMouseMove={(event) => setCursorPos({ x: event.clientX, y: event.clientY })}
             >
               <Mail size={18} />
               Contact Me
@@ -61,28 +49,12 @@ export function Hero() {
               href="#"
               className="group inline-flex items-center gap-2 px-6 py-3.5 border border-foreground/20 hover:border-coral hover:text-coral transition-all duration-300"
               style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))" }}
-              onMouseEnter={() => setHoverLabel("Resume")}
-              onMouseMove={(event) => setCursorPos({ x: event.clientX, y: event.clientY })}
             >
               <File size={18} />
               View Resume
             </a>
           </div>
-          <motion.div
-            initial={false}
-            animate={{
-              opacity: hoverLabel ? 1 : 0,
-              scale: hoverLabel ? 1 : 0.8,
-              left: hoverLabel ? cursorPos.x - 10 : cursorPos.x,
-              top: hoverLabel ? cursorPos.y - 10 : cursorPos.y,
-            }}
-            transition={{ type: "spring", stiffness: 450, damping: 28 }}
-            className="font-display pointer-events-none fixed z-50 flex w-29 h-29 items-center justify-center rounded-full border border-black bg-aqua/90 text-center text-lg font font-semibold text-foreground shadow-lg shadow-black/10 backdrop-blur-2xl"
-            style={{ transform: "translate(-50%, -50%)" }}
-          >
-            {hoverLabel}
-          </motion.div>
-
+          
           <div className="mt-14 flex items-center gap-8 text-sm">
             <Stat n="40+" l="Projects" />
             <Stat n="3yrs" l="Building software" />
