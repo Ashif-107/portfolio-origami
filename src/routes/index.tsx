@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Portfolio } from "@/components/portfolio/Portfolio";
+import OrigamiJourney from "@/components/portfolio/OrigamiJourney";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -15,5 +16,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  return <Portfolio />;
+  return <>
+        <Portfolio/>
+  </>;
 }

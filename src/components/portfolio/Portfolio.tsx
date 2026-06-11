@@ -9,6 +9,7 @@ import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { FloatingPaper } from "./FloatingPaper";
 import { CustomCursor } from "../actions/CustomCursor";
+import OrigamiJourney from "./OrigamiJourney";
 
 export function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -29,14 +30,14 @@ export function Portfolio() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen">
       <CustomCursor/>
       <FloatingPaper />
       <Nav theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero />
         <About />
-        <Timeline />
+        <OrigamiJourney />
         <Skills />
         <Projects />
         <Contact />
