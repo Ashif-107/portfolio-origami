@@ -10,6 +10,7 @@ import { Footer } from "./Footer";
 import { FloatingPaper } from "./FloatingPaper";
 import { CustomCursor } from "../actions/CustomCursor";
 import OrigamiJourney from "./OrigamiJourney";
+import SkillsOrigamiWorld from "./SkillsOrigamiWorld";
 
 export function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -38,7 +39,7 @@ export function Portfolio() {
         <Hero />
         <About />
         <OrigamiJourney />
-        <Skills />
+        <SkillsOrigamiWorld />
         <Projects />
         <Contact />
       </main>

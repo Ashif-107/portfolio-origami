@@ -385,18 +385,18 @@ export default function OrigamiJourney() {
         <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-8 md:p-12">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--color-secondary-foreground)]">
+              <p className="text-xs uppercase tracking-[0.3em] text-(--color-secondary-foreground)">
                 A Career in Folded Paper
               </p>
-              <h1 className="mt-2 max-w-lg text-3xl font-light leading-tight text-[color:var(--color-foreground)] md:text-5xl">
-                An Engineer's Journey Through 
+              <h1 className="mt-2 max-w-lg text-3xl font-light leading-tight text-(--color-foreground) md:text-5xl">
+                An Engineer's Journey Through Time
               </h1>
             </div>
-            <div className="text-right text-[color:var(--color-secondary-foreground)]">
+            <div className="text-right text-(--color-secondary-foreground)">
               <p className="text-xs uppercase tracking-[0.3em]">Chapter</p>
-              <p className="font-serif text-3xl text-[color:var(--color-foreground)]">
+              <p className="font-serif text-3xl text-(--color-foreground)">
                 {String(activeIndex + 1).padStart(2, "0")}
-                <span className="text-[color:var(--color-secondary-foreground)]">
+                <span className="text-(--color-secondary-foreground)">
                   /{String(MILESTONES.length).padStart(2, "0")}
                 </span>
               </p>
@@ -404,19 +404,19 @@ export default function OrigamiJourney() {
           </div>
 
           <div className="max-w-md">
-            <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--color-secondary-foreground)]">
+            <p className="text-xs uppercase tracking-[0.3em] text-(--color-secondary-foreground)">
               {active.year} · {active.role}
             </p>
-            <h2 className="mt-2 text-3xl font-light text-[color:var(--color-foreground)] md:text-4xl">
+            <h2 className="mt-2 text-3xl font-light text-(--color-foreground) md:text-4xl">
               {active.title}
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted-foreground)] md:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-(--color-muted-foreground) md:text-base">
               {active.desc}
             </p>
 
             <div className="mt-6 h-px w-full bg-[#3a2f24]">
               <div
-                className="h-px bg-gradient-to-r from-[#ff7a3d] to-[#ffd9a8] transition-[width] duration-200"
+                className="h-px bg-linear-to-r from-[#ff7a3d] to-[#ffd9a8] transition-[width] duration-200"
                 style={{ width: `${progress * 100}%` }}
               />
             </div>
