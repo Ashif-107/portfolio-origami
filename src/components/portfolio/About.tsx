@@ -91,7 +91,6 @@ export function About() {
 export function SectionLabel({ n, label }: { n: string; label: string }) {
   return (
     <div className="flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
-      <span className="font-mono text-coral">{n}</span>
       <span className="w-8 h-px bg-current" />
       <span>{label}</span>
     </div>

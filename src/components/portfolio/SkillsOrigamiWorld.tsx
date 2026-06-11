@@ -570,6 +570,7 @@ export default function SkillsOrigamiWorld() {
       className="relative w-full"
       style={{ height: `${REGIONS.length * 100}vh` }}
       aria-label="Skills — an origami world map"
+      id="skills"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <Canvas

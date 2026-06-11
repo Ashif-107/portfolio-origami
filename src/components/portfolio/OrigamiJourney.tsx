@@ -371,6 +371,7 @@ export default function OrigamiJourney() {
       ref={sectionRef}
       className="relative w-full"
       style={{ height: `${MILESTONES.length * 100}vh` }}
+      id="journey"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-transparent ">
         <Canvas
