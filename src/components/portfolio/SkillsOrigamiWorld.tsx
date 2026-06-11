@@ -586,7 +586,7 @@ export default function SkillsOrigamiWorld() {
                 An Engineering Ecosystem
               </p>
               <h2 className="mt-2 max-w-lg text-3xl font-light leading-tight text-(--color-foreground) md:text-5xl">
-                Skills as a folded world
+                Skills as a <span className="text-coral">Folded World</span>
               </h2>
             </div>
             <div className="text-right text-(--color-foreground)">
@@ -606,7 +606,7 @@ export default function SkillsOrigamiWorld() {
             >
               {active.tagline}
             </p>
-            <h3 className="mt-2 text-3xl font-bold text-(--color-foreground) highlight-underline md:text-4xl">
+            <h3 className="mt-2 text-3xl font-bold text-(--color-foreground) md:text-4xl">
               {active.name}
             </h3>
             <p className="mt-3 text-xs leading-relaxed text-(--color-foreground)  md:text-base">

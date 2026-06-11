@@ -1,10 +1,26 @@
 import { motion } from "framer-motion";
 
 const facets = [
-  { color: "var(--coral)", title: "Full Stack", body: "React, Next, TypeScript, Node. End‑to‑end product builders." },
-  { color: "var(--aqua)", title: "Cloud", body: "AWS, Docker, Terraform, CI/CD pipelines that don't break at 3am." },
-  { color: "var(--lime)", title: "Systems", body: "Rust, C++, Linux. Tools that run quietly and never get in the way." },
-  { color: "var(--yellow-paper)", title: "Games", body: "Unity, C#, multiplayer netcode and small interactive worlds." },
+  {
+    color: "var(--coral)",
+    title: "Academic Excellence with 9.4 CGPA",
+    body: "Consistently maintaining strong academic performance while balancing projects, internships, and technical exploration."
+  },
+  {
+    color: "var(--aqua)",
+    title: "Project Driven Learning",
+    body: "I learn by building. From cloud gaming platforms to autonomous vehicle simulations, every project starts with curiosity and ends with practical experience."
+  },
+  {
+    color: "var(--lime)",
+    title: "Leadership & Community",
+    body: "Actively involved in technical communities, collaborating with peers, sharing knowledge, and contributing to team-driven initiatives."
+  },
+  {
+    color: "var(--lime)",
+    title: "Hackathons & Innovation",
+    body: "Participated in programs and competitions including Smart India Hackathon (SIH) and Google's Devshouse, collaborating with teams to solve real-world challenges."
+  },
 ];
 
 export function About() {
@@ -13,27 +29,6 @@ export function About() {
       <div className="max-w-7xl mx-auto">
         <SectionLabel n="01" label="About" />
         <div className="grid md:grid-cols-12 gap-12 mt-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-            className="md:col-span-5"
-          >
-            <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
-              An <span className="text-coral">engineer</span><br />
-              and a <span className="text-aqua">paper folder</span>.
-            </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              I treat code the way a paper artist treats a square sheet — every fold deliberate,
-              every crease earning its place. I love the craft of turning gnarly problems into
-              calm, elegant systems people enjoy using.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Outside of shipping, I contribute to open source, write about systems, and
-              prototype tiny games on weekends.
-            </p>
-          </motion.div>
 
           <div className="md:col-span-7 grid sm:grid-cols-2 gap-5">
             {facets.map((f, i) => (
@@ -57,6 +52,36 @@ export function About() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="md:col-span-5"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
+              An <span className="text-coral">engineer</span><br />
+              and a <span className="text-aqua">paper folder</span>.
+            </h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed text-justify">
+              I treat code the way a paper artist treats a square sheet, every fold deliberate,
+              every crease earning its place. I love the craft of turning gnarly problems into
+              calm, elegant systems people enjoy using.
+              
+            </p>
+            <p className="mt-6 text-muted-foreground leading-relaxed text-justify">
+              I am the <span className="text-coral">Lead of  Web Dev Department</span> of IEEE RAS , and <span className="text-aqua">Game Dev Department</span> of OSPC.
+              Worked on the production level Projects of my university and my clubs. 
+              Organized and conducted <span className="text-lime">workshops and Competitions</span> on Web and Game development. 
+              And A passionated Gamer and An Artist.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed text-justify">
+              Outside of shipping, I Participated in many <span className="text-coral">Hackathons</span>. I <span className="text-aqua">contribute to open source</span>, write about systems, and
+              prototype <span className="text-yellow-paper"> tiny games</span> on weekends.
+            </p>
+          </motion.div>
+
         </div>
       </div>
     </section>

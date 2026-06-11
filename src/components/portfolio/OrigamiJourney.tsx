@@ -389,7 +389,7 @@ export default function OrigamiJourney() {
                 A Career in Folded Paper
               </p>
               <h1 className="mt-2 max-w-lg text-3xl font-light leading-tight text-(--color-foreground) md:text-5xl">
-                An Engineer's Journey Through Time
+                An Engineer's <span className="text-coral">Journey</span> Through Time
               </h1>
             </div>
             <div className="text-right text-(--color-secondary-foreground)">
