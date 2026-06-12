@@ -586,15 +586,15 @@ export default function SkillsOrigamiWorld() {
               <p className="text-xs uppercase tracking-[0.3em] text-(--color-foreground)">
                 An Engineering Ecosystem
               </p>
-              <h2 className="mt-2 max-w-lg text-3xl font-light leading-tight text-(--color-foreground) md:text-5xl">
-                Skills as a <span className="text-coral">Folded World</span>
+              <h2 className="mt-2 max-w-lg text-3xl font-light font-display leading-tight text-(--color-foreground) md:text-5xl">
+                Skills as a <span className="text-coral font-serif">Folded World</span>
               </h2>
             </div>
             <div className="text-right text-(--color-foreground)">
               <p className="text-xs uppercase tracking-[0.3em]">Region</p>
-              <p className="font-serif text-3xl text-[#fff4e0]">
+              <p className="font-serif text-3xl text-foreground">
                 {String(activeIndex + 1).padStart(2, "0")}
-                <span className="text-[#d4a574]">
+                <span className="text-aqua">
                   /{String(REGIONS.length).padStart(2, "0")}
                 </span>
               </p>

@@ -11,34 +11,52 @@ type Milestone = {
 
 const MILESTONES: Milestone[] = [
   {
-    year: "2017",
-    title: "First Fold",
-    role: "Junior Developer",
-    desc: "Began the craft. Learned the grammar of code and the patience of debugging.",
-  },
-  {
-    year: "2019",
-    title: "Crane Takes Flight",
-    role: "Full-Stack Engineer",
-    desc: "Shipped products end-to-end. Found rhythm between systems and interfaces.",
-  },
-  {
-    year: "2021",
-    title: "Mountain Pass",
-    role: "Senior Engineer",
-    desc: "Architected platforms used by thousands. Mentored, reviewed, refined.",
+    year: "2023",
+    title: "Academic Excellence",
+    role: "95.5% in TN Higher Secondary Examination",
+    desc: "Graduated high school with distinction, building a strong foundation in mathematics, science, and problem-solving.",
   },
   {
     year: "2023",
-    title: "Lantern Lit",
-    role: "Tech Lead",
-    desc: "Led teams through ambiguity. Translated vision into shipped reality.",
+    title: "Engineering Journey Begins",
+    role: "B.Tech Electronics & Computer Engineering, VIT Chennai",
+    desc: "Entered VIT Chennai and began exploring software development, cloud computing, systems programming, and modern web technologies.",
+  },
+  {
+    year: "2024",
+    title: "Web Development Lead",
+    role: " IEEE RAS Student Chapter",
+    desc: "Led development initiatives for technical events and platforms, supporting 350+ participants through scalable React and Node.js applications.",
+  },
+  {
+    year: "2024",
+    title: "Software Engineering Intern",
+    role: "Workiy Pvt. Ltd.",
+    desc: "Contributed to CRM solutions using the Frappe framework while gaining experience in agile development, feature delivery, and collaborative engineering workflows.",
   },
   {
     year: "2025",
-    title: "Dragon Ascends",
-    role: "Principal Engineer",
-    desc: "Shaping direction. Building the next chapter of the journey.",
+    title: "Game Development Lead",
+    role: "Open Source Programming Club (OSPC)",
+    desc: "Spearheaded game development projects, mentored student developers, and organized collaborative initiatives focused on Unity, C++, and interactive systems.",
+  },
+  {
+    year: "2025",
+    title: "Data Analyst Intern",
+    role: "Vyastics Technologies",
+    desc: "Built Tableau dashboards, designed data warehouse architectures, and explored cloud-integrated analytics systems to drive data-informed decision making.",
+  },
+  {
+    year: "2025",
+    title: "Academic Milestone",
+    role: "CGPA 9.40 / 10.0",
+    desc: "Maintained strong academic performance while balancing internships, leadership positions, hackathons, and large-scale technical projects.",
+  },
+  {
+    year: "2026",
+    title: "Building Beyond the Classroom",
+    role: "Cloud, Systems & Open-Source Developer",
+    desc: "Developing cloud gaming infrastructure, autonomous vehicle simulations, full-stack platforms, and open-source projects while participating in hackathons such as SIH and DevHouse.",
   },
 ];
 
@@ -390,14 +408,14 @@ export default function OrigamiJourney() {
                 A Career in Folded Paper
               </p>
               <h1 className="mt-2 max-w-lg text-3xl font-light leading-tight text-(--color-foreground) md:text-5xl">
-                An Engineer's <span className="text-coral">Journey</span> Through Time
+                An Engineer's <span className="text-coral font-serif">Journey</span> Through Time
               </h1>
             </div>
             <div className="text-right text-(--color-secondary-foreground)">
               <p className="text-xs uppercase tracking-[0.3em]">Chapter</p>
               <p className="font-serif text-3xl text-(--color-foreground)">
                 {String(activeIndex + 1).padStart(2, "0")}
-                <span className="text-(--color-secondary-foreground)">
+                <span className="text-aqua">
                   /{String(MILESTONES.length).padStart(2, "0")}
                 </span>
               </p>
