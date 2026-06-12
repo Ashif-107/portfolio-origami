@@ -196,7 +196,6 @@ function FoldedTag({
 }
 
 /* ── A single origami project sheet ── */
-
 function PaperSheet({
   project,
   hero,
@@ -204,29 +203,33 @@ function PaperSheet({
   project: Project;
   hero?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
       className={`group relative ${hero ? "md:col-span-2" : ""}`}
       style={{ perspective: "1400px" }}
     >
-      {/* dropped paper shadows behind */}
+      {/* glow */}
       <div
         aria-hidden
-        className="absolute -inset-2 -z-10 opacity-60 transition-all duration-500 group-hover:opacity-90"
+        className="absolute -inset-2 -z-10 opacity-60 transition-opacity duration-500 group-hover:opacity-90"
         style={{
           background: `radial-gradient(ellipse at 30% 20%, ${project.accent}22, transparent 60%)`,
           filter: "blur(20px)",
         }}
       />
 
-      {/* back paper layer (slightly rotated) */}
+      {/* back layer */}
       <div
         aria-hidden
-        className="absolute inset-0 translate-x-2 translate-y-3 rotate-[1.2deg] transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-4 group-hover:rotate-[1.8deg]"
+        className="
+          absolute inset-0
+          translate-x-2 translate-y-3 rotate-[1.2deg]
+          transition-transform duration-500
+          group-hover:translate-x-3
+          group-hover:translate-y-4
+          group-hover:rotate-[1.8deg]
+          will-change-transform
+        "
         style={{
           background:
             "linear-gradient(160deg, rgba(255,244,224,0.06), rgba(255,244,224,0.02))",
@@ -235,10 +238,18 @@ function PaperSheet({
           boxShadow: "0 18px 30px -20px rgba(0,0,0,0.6)",
         }}
       />
-      {/* middle paper layer */}
+
+      {/* middle layer */}
       <div
         aria-hidden
-        className="absolute inset-0 translate-x-1 translate-y-1.5 rotate-[-0.6deg] transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-2"
+        className="
+          absolute inset-0
+          translate-x-1 translate-y-1.5 rotate-[-0.6deg]
+          transition-transform duration-500
+          group-hover:translate-x-1.5
+          group-hover:translate-y-2
+          will-change-transform
+        "
         style={{
           background:
             "linear-gradient(150deg, rgba(255,244,224,0.09), rgba(255,244,224,0.03))",
@@ -247,47 +258,43 @@ function PaperSheet({
         }}
       />
 
-      {/* front sheet */}
       <article
-        className="relative overflow-hidden p-7 md:p-9 transition-all duration-500 group-hover:-translate-y-1"
+        className="
+          relative overflow-hidden
+          p-7 md:p-9
+          transition-transform duration-500
+          group-hover:-translate-y-2
+          will-change-transform
+        "
         style={{
+          contain: "layout paint",
           background:
             "linear-gradient(140deg, rgba(255,244,224,0.11), rgba(255,244,224,0.04) 60%, rgba(255,244,224,0.02))",
           backgroundImage: paperTexture,
           border: "1px solid rgba(255,244,224,0.18)",
           clipPath: "polygon(0 0, 100% 0, 100% 86%, 90% 100%, 0 100%)",
-          boxShadow: open
-            ? `0 26px 50px -18px ${project.accent}55, inset 0 1px 0 rgba(255,244,224,0.18)`
-            : "0 12px 28px -16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,244,224,0.08)",
+          boxShadow:
+            "0 12px 28px -16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,244,224,0.08)",
         }}
       >
-        {/* dog-eared corner fold */}
+        {/* dog ear */}
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-0 right-0 transition-all duration-500 group-hover:scale-110"
+          className="
+            pointer-events-none
+            absolute bottom-0 right-0
+            transition-transform duration-500
+            group-hover:scale-110
+          "
           style={{
             width: hero ? "84px" : "56px",
             height: hero ? "84px" : "56px",
             background: `linear-gradient(135deg, transparent 50%, ${project.accent}55 50%, ${project.accent}aa)`,
             clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
-            boxShadow: `inset 2px -2px 6px rgba(0,0,0,0.4)`,
-          }}
-        />
-        {/* triangle that "lifts" from the dog-ear */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 right-0"
-          style={{
-            width: hero ? "84px" : "56px",
-            height: hero ? "84px" : "56px",
-            background:
-              "linear-gradient(315deg, rgba(255,244,224,0.18) 0 50%, transparent 50%)",
-            clipPath: "polygon(100% 100%, 0 100%, 100% 0)",
-            opacity: 0.4,
           }}
         />
 
-        {/* vertical fold crease */}
+        {/* crease lines */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-y-0 left-[34%] w-px"
@@ -296,7 +303,7 @@ function PaperSheet({
               "linear-gradient(to bottom, transparent, rgba(255,244,224,0.22) 20%, rgba(0,0,0,0.18) 50%, rgba(255,244,224,0.22) 80%, transparent)",
           }}
         />
-        {/* horizontal soft crease */}
+
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-[44%] h-px"
@@ -306,14 +313,19 @@ function PaperSheet({
           }}
         />
 
-        {/* accent ribbon */}
+        {/* ribbon */}
         <div
           aria-hidden
-          className="absolute left-0 top-6 h-px w-16 transition-all duration-500 group-hover:w-28"
+          className="
+            absolute left-0 top-6 h-px w-16
+            origin-left
+            transition-transform duration-500
+            group-hover:scale-x-[1.75]
+          "
           style={{ background: project.accent }}
         />
 
-        <header className="flex items-start font-serif justify-between gap-6">
+        <header className="flex items-start justify-between gap-6">
           <div>
             <p
               className="text-[12px] uppercase tracking-[0.4em] font-bold font-display"
@@ -321,71 +333,66 @@ function PaperSheet({
             >
               {project.tagline}
             </p>
+
             <h3
-              className={`mt-3 font-serif leading-tight text-forground ${hero ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"
-                }`}
+              className={`mt-3 font-serif leading-tight text-forground ${
+                hero ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"
+              }`}
             >
               {project.name}
             </h3>
           </div>
-
-          {/* origami crane-ish emblem */}
-          <div
-            className="relative h-12 w-12 shrink-0 transition-transform duration-700 group-hover:rotate-18"
-            aria-hidden
-          >
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(135deg, ${project.accent}, transparent 70%)`,
-                clipPath:
-                  "polygon(50% 0, 100% 50%, 50% 100%, 0 50%)",
-              }}
-            />
-            <div
-              className="absolute inset-1"
-              style={{
-                background: `linear-gradient(315deg, ${project.accent}66, transparent 60%)`,
-                clipPath: "polygon(50% 10%, 90% 50%, 50% 90%, 10% 50%)",
-              }}
-            />
-          </div>
         </header>
 
         <p
-          className={`mt-5 leading-relaxed text-forground/70 ${hero ? "max-w-2xl text-[15px]" : "text-sm"
-            }`}
+          className={`mt-5 leading-relaxed text-forground/70 ${
+            hero ? "max-w-2xl text-[15px]" : "text-sm"
+          }`}
         >
           {project.description}
         </p>
 
-        {/* unfolding compartment */}
+        {/* highlights */}
         <div
-          className="grid overflow-hidden transition-[grid-template-rows,opacity] duration-500"
-          style={{
-            gridTemplateRows: open ? "1fr" : "0fr",
-            opacity: open ? 1 : 0,
-          }}
+          className="
+            overflow-hidden
+            max-h-0
+            opacity-0
+            transition-all
+            duration-500
+            group-hover:max-h-40
+            group-hover:opacity-100
+          "
         >
-          <div className="min-h-0">
-            <div className="mt-5 space-y-1.5 border-l border-dashed border-[#3a2f24] pl-4">
-              {project.highlights.map((h) => (
-                <p key={h} className="text-xs leading-relaxed text-foreground/70">
-                  — {h}
-                </p>
-              ))}
-            </div>
+          <div className="mt-5 space-y-1.5 border-l border-dashed border-[#3a2f24] pl-4">
+            {project.highlights.map((h) => (
+              <p
+                key={h}
+                className="text-xs leading-relaxed text-foreground/70"
+              >
+                — {h}
+              </p>
+            ))}
           </div>
         </div>
 
-        {/* tech tags */}
+        {/* tech */}
         <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1.5">
           {project.tech.map((t, i) => (
             <span
               key={t}
-              className="text-[12px] uppercase tracking-[0.2em] text-foreground transition-all duration-500 font-bold"
+              className="
+                text-[12px]
+                uppercase
+                tracking-[0.2em]
+                text-foreground
+                font-bold
+                transition-transform
+                duration-300
+                group-hover:translate-y-0
+              "
               style={{
-                transform: open ? "translateY(0)" : `translateY(${i % 2 ? 1 : -1}px)`,
+                transform: `translateY(${i % 2 ? 1 : -1}px)`,
               }}
             >
               {t}
@@ -393,25 +400,25 @@ function PaperSheet({
           ))}
         </div>
 
-        {/* footer links */}
         <footer className="mt-7 flex items-center gap-5 text-[12px] uppercase tracking-[0.3em] font-bold">
           {project.github && (
             <a
               href={project.github}
-              className="relative text-aqua transition-colors hover:text-[#fff4e0]"
+              className="text-aqua transition-colors hover:text-[#fff4e0]"
             >
-              Source
-              <span className="ml-1.5">↗</span>
+              Source ↗
             </a>
           )}
+
           {project.demo && (
             <a
               href={project.demo}
               className="text-coral transition-colors hover:text-[#fff4e0]"
             >
-              Demo <span className="ml-1.5">↗</span>
+              Demo ↗
             </a>
           )}
+
           <span className="ml-auto text-[10px] tracking-[0.25em] text-[#6b6053]">
             {project.categories.join(" · ")}
           </span>
@@ -426,7 +433,7 @@ function PaperSheet({
 function PaperScraps() {
   const scraps = useMemo(
     () =>
-      Array.from({ length: 14 }).map((_, i) => ({
+      Array.from({ length: 8 }).map((_, i) => ({
         id: i,
         top: `${(i * 53) % 95}%`,
         left: `${(i * 37) % 95}%`,
