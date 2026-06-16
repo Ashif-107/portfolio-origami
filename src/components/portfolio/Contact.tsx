@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter, Download, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Download, Send, Instagram } from "lucide-react";
 import { SectionLabel } from "./About";
 
 // Paper-plane silhouette clip-path. Designed for a tall rectangle (form area).
@@ -25,10 +25,10 @@ export function Contact() {
           </p>
 
           <div className="mt-10 space-y-3">
-            <Social icon={<Mail size={16} />} label="hello@ashif.dev" href="mailto:hello@ashif.dev" />
-            <Social icon={<Github size={16} />} label="github.com/ashif" href="#" />
-            <Social icon={<Linkedin size={16} />} label="linkedin.com/in/ashif" href="#" />
-            <Social icon={<Twitter size={16} />} label="@ashif" href="#" />
+            <Social icon={<Mail size={16} />} label="mohamedashif1911@gmail.com" href="mailto:mohamedashif1911@gmail.com" />
+            <Social icon={<Github size={16} />} label="github.com/Ashif-107" href="https://github.com/Ashif-107" />
+            <Social icon={<Linkedin size={16} />} label="linkedin.com/in/mohamed-ashif-k-m" href="https://www.linkedin.com/in/mohamed-ashif-k-m/" />
+            <Social icon={<Instagram size={16} />} label="instagram.com/ash_if_107" href="https://www.instagram.com/ash_if_107" />
           </div>
 
           <a
@@ -55,7 +55,7 @@ export function Contact() {
           
           <motion.form
             onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="relative bg-transparent border border-foreground/10 px-14 py-16 min-h-[520px]"
+            className="relative bg-transparent border border-foreground/10 px-14 py-16 min-h-130"
 
             initial={{ opacity: 0, y: 30, rotate: -2 }}
             whileInView={{ opacity: 1, y: 0, rotate: 0 }}

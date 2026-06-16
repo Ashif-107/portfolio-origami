@@ -344,3 +344,55 @@
   z-index: 9999;
   mix-blend-mode: difference;
 }
+
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #141516;
+}
+
+.preloader-svg {
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  height: calc(100% + 300px);
+
+  pointer-events: none;
+}
+
+.preloader-svg path {
+  fill: #141516;
+}
+
+.preloader-text {
+  position: absolute;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  color: white;
+  font-size: 42px;
+  margin: 0;
+}
+
+.preloader-dot {
+  width: 10px;
+  height: 10px;
+
+  margin-right: 10px;
+
+  border-radius: 999px;
+  background: white;
+}

@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
 import { About } from "./About";
-import { Timeline } from "./Timeline";
-import { Skills } from "./Skills";
-import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { FloatingPaper } from "./FloatingPaper";
@@ -28,7 +25,7 @@ export function Portfolio() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.classList.toggle("dark", next === "dark");
-    try { localStorage.setItem("theme", next); } catch {}
+    try { localStorage.setItem("theme", next); } catch { /* empty */ }
   };
 
   return (

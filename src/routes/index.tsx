@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+
 import { Portfolio } from "@/components/portfolio/Portfolio";
-import OrigamiJourney from "@/components/portfolio/OrigamiJourney";
+import OrigamiPreloader from "@/components/actions/OrigamiPreloader";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,7 +19,18 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [loading, setLoading] = useState(true);
+
   return <>
-        <Portfolio/>
+    <AnimatePresence mode="wait">
+      {loading && (
+        <OrigamiPreloader
+          key="preloader"
+          onComplete={() => setLoading(false)}
+        />
+      )}
+    </AnimatePresence>
+
+    <Portfolio />
   </>;
 }
