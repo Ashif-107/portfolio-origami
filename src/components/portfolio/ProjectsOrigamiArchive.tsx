@@ -233,7 +233,7 @@ function PaperSheet({
         style={{
           background:
             "linear-gradient(160deg, rgba(255,244,224,0.06), rgba(255,244,224,0.02))",
-          border: "1px solid rgba(255,244,224,0.08)",
+          border: "1px solid ",
           clipPath: "polygon(0 0, 100% 0, 100% 86%, 90% 100%, 0 100%)",
           boxShadow: "0 18px 30px -20px rgba(0,0,0,0.6)",
         }}
@@ -253,7 +253,7 @@ function PaperSheet({
         style={{
           background:
             "linear-gradient(150deg, rgba(255,244,224,0.09), rgba(255,244,224,0.03))",
-          border: "1px solid rgba(255,244,224,0.1)",
+          border: "1px solid ",
           clipPath: "polygon(0 0, 100% 0, 100% 86%, 90% 100%, 0 100%)",
         }}
       />
@@ -271,7 +271,7 @@ function PaperSheet({
           background:
             "linear-gradient(140deg, rgba(255,244,224,0.11), rgba(255,244,224,0.04) 60%, rgba(255,244,224,0.02))",
           backgroundImage: paperTexture,
-          border: "1px solid rgba(255,244,224,0.18)",
+          border: "1px solid ",
           clipPath: "polygon(0 0, 100% 0, 100% 86%, 90% 100%, 0 100%)",
           boxShadow:
             "0 12px 28px -16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,244,224,0.08)",

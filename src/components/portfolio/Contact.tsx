@@ -32,7 +32,7 @@ export function Contact() {
           </div>
 
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1tbFmFTOguktyMU02vPt0RuVFRAntEEPg/view?usp=sharing"
             className="mt-10 inline-flex items-center gap-2 px-5 py-3 border border-foreground/20 hover:border-coral hover:text-coral transition-all text-sm"
             style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))" }}
           >

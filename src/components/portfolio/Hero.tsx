@@ -46,7 +46,7 @@ export function Hero() {
               Contact Me
             </a>
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1tbFmFTOguktyMU02vPt0RuVFRAntEEPg/view?usp=sharing"
               className="group inline-flex items-center gap-2 px-6 py-3.5 border border-foreground/20 hover:border-coral hover:text-coral transition-all duration-300"
               style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))" }}
             >

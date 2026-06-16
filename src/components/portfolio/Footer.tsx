@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
   return (
@@ -26,9 +26,9 @@ export function Footer() {
           <span className="text-sm">© {new Date().getFullYear()} Ashif. Folded with care.</span>
         </div>
         <div className="flex items-center gap-4 text-muted-foreground">
-          <a href="#" aria-label="GitHub" className="hover:text-coral transition-colors"><Github size={18} /></a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-coral transition-colors"><Linkedin size={18} /></a>
-          <a href="#" aria-label="Twitter" className="hover:text-coral transition-colors"><Twitter size={18} /></a>
+          <a href="https://github.com/Ashif-107" aria-label="GitHub" className="hover:text-coral transition-colors"><Github size={18} /></a>
+          <a href="https://www.linkedin.com/in/mohamed-ashif-k-m/" aria-label="LinkedIn" className="hover:text-coral transition-colors"><Linkedin size={18} /></a>
+          <a href="https://instagram.com/ash_if_107" aria-label="Instagram" className="hover:text-coral transition-colors"><Instagram size={18} /></a>
         </div>
       </div>
     </footer>

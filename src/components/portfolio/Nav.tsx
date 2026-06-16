@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter, Sun, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
@@ -44,17 +44,23 @@ export function Nav({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggl
               </a>
             ))}
           </nav>
-          <button
-            onClick={onToggleTheme}
-            aria-label="Toggle theme"
-            className="relative w-10 h-10 grid place-items-center rounded-full border border-border hover:border-coral hover:text-coral transition-all hover:rotate-45"
-          >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
+
+          <div className="flex items-center gap-4 text-muted-foreground">
+            <button
+              onClick={onToggleTheme}
+              aria-label="Toggle theme"
+              className="relative w-10 h-10 grid place-items-center rounded-full border border-border hover:border-coral hover:text-coral transition-all hover:rotate-45"
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+            <a href="https://github.com/Ashif-107" aria-label="GitHub" className="hover:text-coral transition-colors"><Github size={18} /></a>
+            <a href="https://www.linkedin.com/in/mohamed-ashif-k-m/" aria-label="LinkedIn" className="hover:text-coral transition-colors"><Linkedin size={18} /></a>
+          </div>
         </div>
+
       </motion.header>
 
-     
+
     </>
   );
 }
